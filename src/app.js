@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const config = require('./config');
+const { getDBStatus } = require('./config/db');
 
 const app = express();
 
@@ -16,11 +17,15 @@ if (config.nodeEnv !== 'test') {
 
 // Health Check Endpoint
 app.get('/health', (req, res) => {
+  const dbStatus = getDBStatus();
   res.status(200).json({
     status: 'ok',
     timestamp: new Date().toISOString(),
     uptime: process.uptime(),
-    environment: config.nodeEnv
+    environment: config.nodeEnv,
+    database: {
+      status: dbStatus
+    }
   });
 });
 
