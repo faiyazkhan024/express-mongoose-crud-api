@@ -29,4 +29,9 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Centralized error handling
+const { notFoundHandler, errorHandler } = require('./middlewares/errorHandler');
+app.use(notFoundHandler);
+app.use(errorHandler);
+
 module.exports = app;
