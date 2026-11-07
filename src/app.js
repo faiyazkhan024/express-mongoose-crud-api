@@ -15,6 +15,21 @@ if (config.nodeEnv !== 'test') {
   app.use(morgan('dev'));
 }
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'Welcome to TaskPulse REST API',
+    version: '1.0.0',
+    documentation: 'https://github.com/faiyazkhan024/express-mongoose-crud-api',
+    endpoints: {
+      health: 'GET /health',
+      analytics: 'GET /api/v1/tasks/analytics',
+      tasks: 'GET,POST /api/v1/tasks',
+      taskById: 'GET,PUT,PATCH,DELETE /api/v1/tasks/:id'
+    }
+  });
+});
+
 // Health Check Endpoint
 app.get('/health', (req, res) => {
   const dbStatus = getDBStatus();
