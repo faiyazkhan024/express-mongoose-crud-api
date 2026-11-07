@@ -1,0 +1,26 @@
+{
+  "name": "express-mongoose-crud-api",
+  "version": "1.0.0",
+  "description": "A robust, production-grade RESTful CRUD API built with Node.js, Express, and MongoDB/Mongoose for agile sprint and task management.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "seed": "node src/db/seed.js",
+    "test": "node --test test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faiyazkhan024/express-mongoose-crud-api.git"
+  },
+  "keywords": [
+    "express",
+    "mongoose",
+    "mongodb",
+    "rest-api",
+    "crud",
+    "nodejs"
+  ],
+  "author": "Faiyaz Khan <faiyazkhan024@gmail.com>",
+  "license": "ISC"
+}
