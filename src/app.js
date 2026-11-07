@@ -29,6 +29,10 @@ app.get('/health', (req, res) => {
   });
 });
 
+// API Routes
+const taskRoutes = require('./routes/taskRoutes');
+app.use('/api/v1/tasks', taskRoutes);
+
 // Centralized error handling
 const { notFoundHandler, errorHandler } = require('./middlewares/errorHandler');
 app.use(notFoundHandler);
